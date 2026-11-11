@@ -38,8 +38,14 @@ jobs:
       with:
         xml-file: 'OpenRaster Filetype.csproj'
         xpath: '//Project//PropertyGroup//Version'
+    - name: Shorten commit SHA
+      uses: actions/github-script@v7
+      id: set-short-sha
+      with:
+        script: return context.sha.substring(0, 4)
+        result-encoding: string
     - name: Release
       uses: softprops/action-gh-release@v3
       with:
-        tag_name: ${{ steps.getxml.outputs.info }}-${{ github.sha:0:7 }}
+        tag_name: ${{ steps.getxml.outputs.info }}-${{ steps.set-short-sha.outputs.result }}
         files: /home/runner/work/openraster_pdn/openraster_pdn/bin/Release/net11.0-windows/OpenRasterFileType.dll
