@@ -41,5 +41,5 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v3
       with:
-        tag_name: ${{ steps.getxml.outputs.info }}
+        tag_name: ${{ steps.getxml.outputs.info }}-${{ github.sha:0:7 }}
         files: /home/runner/work/openraster_pdn/openraster_pdn/bin/Release/net11.0-windows/OpenRasterFileType.dll
