@@ -48,4 +48,4 @@ jobs:
       uses: softprops/action-gh-release@v3
       with:
         tag_name: ${{ steps.getxml.outputs.info }}-${{ steps.set-short-sha.outputs.result }}
-        files: /home/runner/work/openraster_pdn/openraster_pdn/bin/Release/net11.0-windows/OpenRasterFileType.dll
+        files: /home/runner/work/openraster-pdn/openraster-pdn/bin/Release/net11.0-windows/OpenRasterFileType.dll
